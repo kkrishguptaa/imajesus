@@ -26,8 +26,16 @@ jobs:
         uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5
         with:
           go-version: ${{ env.GO_VERSION }}
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y libmagickwand-dev
+      - name: Install ImageMagick 7
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential pkg-config libpng-dev libjpeg-dev libtiff-dev libwebp-dev
+          git clone --depth 1 https://github.com/ImageMagick/ImageMagick.git /tmp/ImageMagick
+          cd /tmp/ImageMagick
+          ./configure --with-webp
+          make -j$(nproc)
+          sudo make install
+          sudo ldconfig
       - name: Install Dependencies
         run: go mod download
       - name: Verify Dependencies
@@ -46,8 +54,16 @@ jobs:
         uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5
         with:
           go-version: ${{ env.GO_VERSION }}
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y libmagickwand-dev
+      - name: Install ImageMagick 7
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential pkg-config libpng-dev libjpeg-dev libtiff-dev libwebp-dev
+          git clone --depth 1 https://github.com/ImageMagick/ImageMagick.git /tmp/ImageMagick
+          cd /tmp/ImageMagick
+          ./configure --with-webp
+          make -j$(nproc)
+          sudo make install
+          sudo ldconfig
       - name: Install Dependencies
         run: go mod download
       - name: Verify Dependencies
@@ -69,8 +85,16 @@ jobs:
         uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5
         with:
           go-version: ${{ env.GO_VERSION }}
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y libmagickwand-dev
+      - name: Install ImageMagick 7
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential pkg-config libpng-dev libjpeg-dev libtiff-dev libwebp-dev
+          git clone --depth 1 https://github.com/ImageMagick/ImageMagick.git /tmp/ImageMagick
+          cd /tmp/ImageMagick
+          ./configure --with-webp
+          make -j$(nproc)
+          sudo make install
+          sudo ldconfig
       - name: "Warning: No test cases"
         run: echo "Reminder to create test cases"
       - name: Install Dependencies
@@ -152,8 +176,16 @@ jobs:
         uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5
         with:
           go-version: ${{ env.GO_VERSION }}
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y libmagickwand-dev
+      - name: Install ImageMagick 7
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential pkg-config libpng-dev libjpeg-dev libtiff-dev libwebp-dev
+          git clone --depth 1 https://github.com/ImageMagick/ImageMagick.git /tmp/ImageMagick
+          cd /tmp/ImageMagick
+          ./configure --with-webp
+          make -j$(nproc)
+          sudo make install
+          sudo ldconfig
       - name: Install Dependencies
         run: go mod download
       - name: Verify Dependencies
